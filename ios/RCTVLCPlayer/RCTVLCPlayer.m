@@ -97,7 +97,6 @@ static NSString *const playbackRate = @"rate";
     // _player = [[VLCMediaPlayer alloc] initWithOptions:options];
     _player = [[VLCMediaPlayer alloc] init];
 	// [bavv edit end]
-
     [_player setDrawable:self];
     _player.delegate = self;
     _player.scaleFactor = 0;
@@ -133,7 +132,7 @@ static NSString *const playbackRate = @"rate";
     // _player = [[VLCMediaPlayer alloc] initWithOptions:options];
     _player = [[VLCMediaPlayer alloc] init];
     // [bavv edit end]
-
+    [_player.audio setMuted:YES];
     [_player setDrawable:self];
     _player.delegate = self;
     _player.scaleFactor = 0;
