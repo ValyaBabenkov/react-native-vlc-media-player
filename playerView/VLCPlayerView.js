@@ -176,7 +176,7 @@ export default class VLCPlayerView extends Component {
           )}
         {isError && (
           <View style={[styles.loading, { backgroundColor: '#000' }]}>
-            <Text style={{ color: 'red' }}>{errorTitle}</Text>
+            {/* <Text style={{ color: 'red' }}>{errorTitle}</Text>
             <TouchableOpacity
               activeOpacity={1}
               onPress={this._reload}
@@ -187,7 +187,7 @@ export default class VLCPlayerView extends Component {
                 marginTop: 10,
               }}>
               <Icon name={'reload'} size={45} color="#fff" />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
         )}
         <View style={styles.topView}>
