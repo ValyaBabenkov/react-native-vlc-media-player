@@ -77,7 +77,7 @@ export default class VLCPlayerView extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.uri !== prevProps.uri) {
-      console.log("componentDidUpdate");
+      //console.log("componentDidUpdate");
       this.changeUrl = true;
     }
   }
@@ -151,6 +151,7 @@ export default class VLCPlayerView extends Component {
         <VLCPlayer
           ref={ref => (this.vlcPlayer = ref)}
           paused={this.state.paused}
+          muted={true}
           //seek={this.state.seek}
           style={[styles.video]}
           source={source}
@@ -277,7 +278,7 @@ export default class VLCPlayerView extends Component {
     // if (this.state.paused) {
     //   this.setState({ paused: false });
     // }
-    console.log('onPlaying');
+    //console.log('onPlaying');
   }
 
   /**
@@ -290,7 +291,7 @@ export default class VLCPlayerView extends Component {
     // } else {
     //   this.setState({ showControls: true });
     // }
-    console.log('onPaused');
+    //console.log('onPaused');
   }
 
   /**
@@ -306,12 +307,12 @@ export default class VLCPlayerView extends Component {
     if (!this.bufferInterval) {
       this.bufferInterval = setInterval(this.bufferIntervalFunction, 250);
     }
-    console.log('onBuffering');
-    console.log(event);
+    //console.log('onBuffering');
+    //console.log(event);
   }
 
   bufferIntervalFunction = () => {
-    console.log('bufferIntervalFunction');
+    //console.log('bufferIntervalFunction');
     let currentTime = new Date().getTime();
     let diffTime = currentTime - this.bufferTime;
     if (diffTime > 1000) {
@@ -325,7 +326,7 @@ export default class VLCPlayerView extends Component {
         });
       });
       this.bufferInterval = null;
-      console.log('remove  bufferIntervalFunction');
+      //console.log('remove  bufferIntervalFunction');
     }
   };
 
@@ -334,8 +335,8 @@ export default class VLCPlayerView extends Component {
     let { onVLCError } = this.props;
     onVLCError && onVLCError();
     // [bavv add end]
-    console.log('_onError');
-    console.log(e);
+    // console.log('_onError');
+    // console.log(e);
     this.reloadSuccess = false;
     this.setState({
       isError: true,
@@ -343,12 +344,12 @@ export default class VLCPlayerView extends Component {
   };
 
   _onOpen = e => {
-    console.log('onOpen', e);
+    //console.log('onOpen', e);
   };
 
   _onLoadStart = e => {
-    console.log('_onLoadStart');
-    console.log(e);
+    //console.log('_onLoadStart');
+    //console.log(e);
     let { isError } = this.state;
     if (isError) {
       this.reloadSuccess = true;
@@ -427,9 +428,9 @@ export default class VLCPlayerView extends Component {
    * @param event
    */
   onEnded(event) {
-    console.log('onEnded ---------->')
-    console.log(event)
-    console.log('<---------- onEnded ')
+    // console.log('onEnded ---------->')
+    // console.log(event)
+    // console.log('<---------- onEnded ')
     let { currentTime, totalTime } = this.state;
     // [bavv add start]
     let { onVLCEnded, onEnd, autoplay, isGG } = this.props;
@@ -446,9 +447,9 @@ export default class VLCPlayerView extends Component {
             onEnd && onEnd();
             if (!isGG) {
               this.vlcPlayer.resume && this.vlcPlayer.resume(false);
-              console.log(this.props.uri + ':   onEnded');
+              //console.log(this.props.uri + ':   onEnded');
             } else {
-              console.log('片头：' + this.props.uri + ':   onEnded');
+              //console.log('片头：' + this.props.uri + ':   onEnded');
             }
             this.isEnding = true;
           }
