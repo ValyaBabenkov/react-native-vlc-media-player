@@ -126,7 +126,7 @@ export default class CommonVideo extends Component {
 
   componentDidMount() {
     this._componentMounted = true
-    StatusBar.setBarStyle("light-content");
+    //StatusBar.setBarStyle("light-content");
     let { style, isGG } = this.props;
 
     if (style && style.height && !isNaN(style.height)) {
@@ -168,7 +168,7 @@ export default class CommonVideo extends Component {
     let { startFullScreen, BackHandle, Orientation } = this.props;
     //StatusBar.setTranslucent(true);
     this.setState({ isFull: true, currentVideoAspectRatio: deviceHeight + ":" + deviceWidth, });
-    StatusBar.setHidden(true);
+    //StatusBar.setHidden(true);
     BackHandle && BackHandle.addBackFunction(_fullKey, this._closeFullScreen);
     startFullScreen && startFullScreen();
     Orientation && Orientation.lockToLandscape && Orientation.lockToLandscape();
