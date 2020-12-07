@@ -96,9 +96,9 @@ public class ReactVlcPlayerViewManager extends SimpleViewManager<ReactVlcPlayerV
         videoView.setPausedModifier(paused);
     }
 
-    @ReactProp(name = PROP_MUTED, defaultBoolean = false)
+    @ReactProp(name = PROP_MUTED, defaultBoolean = true)
     public void setMuted(final ReactVlcPlayerView videoView, final boolean muted) {
-        videoView.setMutedModifier(muted);
+        videoView.setMutedModifier(true);
     }
 
     @ReactProp(name = PROP_VOLUME, defaultFloat = 1.0f)

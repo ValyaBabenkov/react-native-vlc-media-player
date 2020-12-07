@@ -491,7 +491,7 @@ class ReactVlcPlayerView extends TextureView implements
      */
     public void setVolumeModifier(int volumeModifier) {
         if (mMediaPlayer != null) {
-            mMediaPlayer.setVolume(volumeModifier);
+            mMediaPlayer.setVolume(0);
         }
     }
 
@@ -502,12 +502,13 @@ class ReactVlcPlayerView extends TextureView implements
      */
     public void setMutedModifier(boolean muted) {
         if (mMediaPlayer != null) {
-            if (muted) {
-                this.preVolume = mMediaPlayer.getVolume();
-                mMediaPlayer.setVolume(0);
-            } else {
-                mMediaPlayer.setVolume(this.preVolume);
-            }
+             mMediaPlayer.setVolume(0);
+            // if (muted) {
+            //     this.preVolume = mMediaPlayer.getVolume();
+            //     mMediaPlayer.setVolume(0);
+            // } else {
+            //     mMediaPlayer.setVolume(this.preVolume);
+            // }
         }
     }
 
