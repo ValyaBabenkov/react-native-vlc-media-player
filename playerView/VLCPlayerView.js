@@ -54,7 +54,7 @@ export default class VLCPlayerView extends Component {
     playInBackground: false,
     isGG: false,
     autoplay: true,
-    errorTitle: 'Error play video, please try again'
+    errorTitle: ''
   };
 
   componentDidMount() {
